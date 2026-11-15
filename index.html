@@ -11,129 +11,183 @@
 <link rel="icon" type="image/png" href="img/favicon.png">
 <style>
 :root {
-  --bg: #0b1220;
-  --bg-2: #0f182b;
-  --card: #131d33;
-  --line: #26385a;
-  --text: #f2f6ff;
-  --muted: #a9b8d0;
-  --cyan: #38bdf8;
-  --orange: #f59e0b;
-  --green: #34d399;
-  --radius: 16px;
+  --bg: #02050d;
+  --card: rgba(13, 24, 44, .66);
+  --card-solid: #0f1a2c;
+  --line: rgba(125, 170, 255, .18);
+  --line-strong: #22314b;
+  --text: #e6edf7;
+  --muted: #8fa0b8;
+  --soft: #a9c3e8;
+  --accent: #38bdf8;
+  --good: #34d399;
+  --gold: #fbbf24;
+  --act: #fb7185;
+  --gray: #64748b;
+  --orange: #fb923c;
+  --purple: #a78bfa;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { background: var(--bg); scroll-behavior: smooth; }
 body {
-  margin: 0;
-  background: radial-gradient(1200px 600px at 15% -10%, #12315a55, transparent 60%),
-              radial-gradient(900px 500px at 100% 10%, #3b1d6a40, transparent 55%),
-              var(--bg);
-  color: var(--text);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  line-height: 1.55;
+  margin: 0; min-height: 100vh; color: var(--text);
+  font: 16px/1.6 Roboto, system-ui, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  background: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%221400%22%20height%3D%22800%22%3E%3Ccircle%20cx%3D%22926%22%20cy%3D%22573%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.54%22/%3E%3Ccircle%20cx%3D%221202%22%20cy%3D%22194%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.77%22/%3E%3Ccircle%20cx%3D%22974%22%20cy%3D%22644%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.31%22/%3E%3Ccircle%20cx%3D%22621%22%20cy%3D%22145%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.60%22/%3E%3Ccircle%20cx%3D%221299%22%20cy%3D%2242%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.88%22/%3E%3Ccircle%20cx%3D%221339%22%20cy%3D%22756%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.66%22/%3E%3Ccircle%20cx%3D%221082%22%20cy%3D%2264%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.27%22/%3E%3Ccircle%20cx%3D%22495%22%20cy%3D%22614%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.76%22/%3E%3Ccircle%20cx%3D%22668%22%20cy%3D%22451%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.59%22/%3E%3Ccircle%20cx%3D%221311%22%20cy%3D%22301%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.25%22/%3E%3Ccircle%20cx%3D%22174%22%20cy%3D%22468%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.51%22/%3E%3Ccircle%20cx%3D%221128%22%20cy%3D%2285%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.45%22/%3E%3Ccircle%20cx%3D%22470%22%20cy%3D%22525%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.27%22/%3E%3Ccircle%20cx%3D%221153%22%20cy%3D%22784%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.51%22/%3E%3Ccircle%20cx%3D%22595%22%20cy%3D%22395%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.87%22/%3E%3Ccircle%20cx%3D%221%22%20cy%3D%22218%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.85%22/%3E%3Ccircle%20cx%3D%22107%22%20cy%3D%22481%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.89%22/%3E%3Ccircle%20cx%3D%22813%22%20cy%3D%22429%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.62%22/%3E%3Ccircle%20cx%3D%22406%22%20cy%3D%22797%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.47%22/%3E%3Ccircle%20cx%3D%22637%22%20cy%3D%22340%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.88%22/%3E%3Ccircle%20cx%3D%22241%22%20cy%3D%22137%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.71%22/%3E%3Ccircle%20cx%3D%2222%22%20cy%3D%2261%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.77%22/%3E%3Ccircle%20cx%3D%22363%22%20cy%3D%22698%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.54%22/%3E%3Ccircle%20cx%3D%22390%22%20cy%3D%22749%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.52%22/%3E%3Ccircle%20cx%3D%22785%22%20cy%3D%22119%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.52%22/%3E%3Ccircle%20cx%3D%22435%22%20cy%3D%220%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.81%22/%3E%3Ccircle%20cx%3D%221213%22%20cy%3D%22311%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.39%22/%3E%3Ccircle%20cx%3D%22807%22%20cy%3D%22616%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.28%22/%3E%3Ccircle%20cx%3D%22299%22%20cy%3D%22218%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.42%22/%3E%3Ccircle%20cx%3D%221249%22%20cy%3D%22336%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.50%22/%3E%3Ccircle%20cx%3D%22152%22%20cy%3D%2292%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.63%22/%3E%3Ccircle%20cx%3D%22497%22%20cy%3D%2215%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.49%22/%3E%3Ccircle%20cx%3D%22928%22%20cy%3D%22130%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.79%22/%3E%3Ccircle%20cx%3D%22277%22%20cy%3D%22395%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.66%22/%3E%3Ccircle%20cx%3D%22636%22%20cy%3D%22233%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.72%22/%3E%3Ccircle%20cx%3D%22324%22%20cy%3D%22757%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.70%22/%3E%3Ccircle%20cx%3D%22795%22%20cy%3D%22494%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.52%22/%3E%3Ccircle%20cx%3D%22212%22%20cy%3D%22111%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.58%22/%3E%3Ccircle%20cx%3D%22522%22%20cy%3D%22244%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.42%22/%3E%3Ccircle%20cx%3D%221221%22%20cy%3D%22502%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.59%22/%3E%3Ccircle%20cx%3D%22140%22%20cy%3D%22129%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.56%22/%3E%3Ccircle%20cx%3D%221338%22%20cy%3D%22630%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.43%22/%3E%3Ccircle%20cx%3D%22417%22%20cy%3D%22766%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.29%22/%3E%3Ccircle%20cx%3D%22842%22%20cy%3D%22456%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.29%22/%3E%3Ccircle%20cx%3D%22360%22%20cy%3D%22288%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.60%22/%3E%3Ccircle%20cx%3D%22269%22%20cy%3D%2294%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.34%22/%3E%3Ccircle%20cx%3D%22922%22%20cy%3D%22338%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.63%22/%3E%3Ccircle%20cx%3D%2236%22%20cy%3D%22486%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.71%22/%3E%3Ccircle%20cx%3D%2268%22%20cy%3D%2221%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.56%22/%3E%3Ccircle%20cx%3D%22637%22%20cy%3D%22326%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.90%22/%3E%3Ccircle%20cx%3D%22154%22%20cy%3D%22463%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.73%22/%3E%3Ccircle%20cx%3D%22265%22%20cy%3D%22349%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.31%22/%3E%3Ccircle%20cx%3D%22969%22%20cy%3D%2279%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.86%22/%3E%3Ccircle%20cx%3D%2261%22%20cy%3D%22511%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.66%22/%3E%3Ccircle%20cx%3D%22783%22%20cy%3D%22388%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.65%22/%3E%3Ccircle%20cx%3D%22164%22%20cy%3D%2292%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.90%22/%3E%3Ccircle%20cx%3D%22852%22%20cy%3D%22745%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.50%22/%3E%3Ccircle%20cx%3D%221189%22%20cy%3D%22468%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.55%22/%3E%3Ccircle%20cx%3D%221108%22%20cy%3D%2285%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.45%22/%3E%3Ccircle%20cx%3D%22179%22%20cy%3D%22492%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.40%22/%3E%3Ccircle%20cx%3D%22231%22%20cy%3D%22509%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.42%22/%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%22376%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.34%22/%3E%3Ccircle%20cx%3D%221252%22%20cy%3D%22207%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.74%22/%3E%3Ccircle%20cx%3D%22701%22%20cy%3D%22675%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.57%22/%3E%3Ccircle%20cx%3D%22494%22%20cy%3D%22334%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.68%22/%3E%3Ccircle%20cx%3D%22406%22%20cy%3D%22649%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.77%22/%3E%3Ccircle%20cx%3D%22410%22%20cy%3D%22219%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.39%22/%3E%3Ccircle%20cx%3D%22648%22%20cy%3D%22214%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.34%22/%3E%3Ccircle%20cx%3D%22718%22%20cy%3D%2241%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.87%22/%3E%3Ccircle%20cx%3D%22566%22%20cy%3D%22173%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.54%22/%3E%3Ccircle%20cx%3D%22563%22%20cy%3D%22219%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.50%22/%3E%3Ccircle%20cx%3D%221064%22%20cy%3D%22505%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.72%22/%3E%3Ccircle%20cx%3D%221279%22%20cy%3D%22463%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.30%22/%3E%3Ccircle%20cx%3D%2264%22%20cy%3D%22284%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.69%22/%3E%3Ccircle%20cx%3D%22575%22%20cy%3D%22584%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.45%22/%3E%3Ccircle%20cx%3D%221155%22%20cy%3D%2219%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.51%22/%3E%3Ccircle%20cx%3D%22388%22%20cy%3D%2225%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.40%22/%3E%3Ccircle%20cx%3D%22288%22%20cy%3D%2248%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.54%22/%3E%3Ccircle%20cx%3D%221290%22%20cy%3D%22548%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.87%22/%3E%3Ccircle%20cx%3D%22405%22%20cy%3D%22204%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.42%22/%3E%3Ccircle%20cx%3D%2222%22%20cy%3D%22773%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.60%22/%3E%3Ccircle%20cx%3D%2274%22%20cy%3D%22183%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.43%22/%3E%3Ccircle%20cx%3D%22708%22%20cy%3D%22552%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.51%22/%3E%3Ccircle%20cx%3D%22458%22%20cy%3D%2289%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.86%22/%3E%3Ccircle%20cx%3D%22794%22%20cy%3D%22133%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.54%22/%3E%3Ccircle%20cx%3D%221281%22%20cy%3D%226%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.61%22/%3E%3Ccircle%20cx%3D%221336%22%20cy%3D%22514%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.55%22/%3E%3Ccircle%20cx%3D%221333%22%20cy%3D%22209%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.72%22/%3E%3Ccircle%20cx%3D%221314%22%20cy%3D%22734%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.39%22/%3E%3Ccircle%20cx%3D%22799%22%20cy%3D%2289%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.60%22/%3E%3Ccircle%20cx%3D%22656%22%20cy%3D%22268%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.48%22/%3E%3Ccircle%20cx%3D%22169%22%20cy%3D%2238%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.47%22/%3E%3Ccircle%20cx%3D%22863%22%20cy%3D%22786%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.57%22/%3E%3Ccircle%20cx%3D%2258%22%20cy%3D%22223%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.53%22/%3E%3Ccircle%20cx%3D%2271%22%20cy%3D%22177%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.70%22/%3E%3Ccircle%20cx%3D%22287%22%20cy%3D%22481%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.90%22/%3E%3Ccircle%20cx%3D%221061%22%20cy%3D%22694%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.86%22/%3E%3Ccircle%20cx%3D%221008%22%20cy%3D%22592%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.74%22/%3E%3Ccircle%20cx%3D%22899%22%20cy%3D%22539%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.79%22/%3E%3Ccircle%20cx%3D%221150%22%20cy%3D%22654%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.59%22/%3E%3Ccircle%20cx%3D%221146%22%20cy%3D%22262%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.69%22/%3E%3Ccircle%20cx%3D%221248%22%20cy%3D%22213%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.80%22/%3E%3Ccircle%20cx%3D%221115%22%20cy%3D%22536%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.62%22/%3E%3Ccircle%20cx%3D%22411%22%20cy%3D%22420%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.58%22/%3E%3Ccircle%20cx%3D%221239%22%20cy%3D%22386%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.60%22/%3E%3Ccircle%20cx%3D%2290%22%20cy%3D%22528%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.60%22/%3E%3Ccircle%20cx%3D%221152%22%20cy%3D%22124%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.31%22/%3E%3Ccircle%20cx%3D%22341%22%20cy%3D%2267%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.52%22/%3E%3Ccircle%20cx%3D%22827%22%20cy%3D%22275%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.56%22/%3E%3Ccircle%20cx%3D%22260%22%20cy%3D%22347%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.84%22/%3E%3Ccircle%20cx%3D%22975%22%20cy%3D%22537%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.32%22/%3E%3Ccircle%20cx%3D%22859%22%20cy%3D%22632%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.85%22/%3E%3Ccircle%20cx%3D%22265%22%20cy%3D%22718%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.27%22/%3E%3Ccircle%20cx%3D%22318%22%20cy%3D%22232%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.70%22/%3E%3Ccircle%20cx%3D%22659%22%20cy%3D%22740%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.41%22/%3E%3Ccircle%20cx%3D%221021%22%20cy%3D%22107%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.73%22/%3E%3Ccircle%20cx%3D%22251%22%20cy%3D%22522%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.72%22/%3E%3Ccircle%20cx%3D%221086%22%20cy%3D%22447%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.49%22/%3E%3Ccircle%20cx%3D%22846%22%20cy%3D%22542%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.60%22/%3E%3Ccircle%20cx%3D%221292%22%20cy%3D%22546%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.59%22/%3E%3Ccircle%20cx%3D%221111%22%20cy%3D%22626%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.40%22/%3E%3Ccircle%20cx%3D%221285%22%20cy%3D%22355%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.46%22/%3E%3Ccircle%20cx%3D%22645%22%20cy%3D%22199%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.76%22/%3E%3Ccircle%20cx%3D%22398%22%20cy%3D%2299%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.83%22/%3E%3Ccircle%20cx%3D%22271%22%20cy%3D%22744%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.42%22/%3E%3Ccircle%20cx%3D%22198%22%20cy%3D%22445%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.60%22/%3E%3Ccircle%20cx%3D%22258%22%20cy%3D%22205%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.66%22/%3E%3Ccircle%20cx%3D%2236%22%20cy%3D%2298%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.62%22/%3E%3Ccircle%20cx%3D%22732%22%20cy%3D%22369%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.71%22/%3E%3Ccircle%20cx%3D%221299%22%20cy%3D%22776%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.58%22/%3E%3Ccircle%20cx%3D%22387%22%20cy%3D%2272%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.32%22/%3E%3Ccircle%20cx%3D%2276%22%20cy%3D%22780%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.35%22/%3E%3Ccircle%20cx%3D%22377%22%20cy%3D%22117%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.36%22/%3E%3Ccircle%20cx%3D%22323%22%20cy%3D%22289%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.63%22/%3E%3Ccircle%20cx%3D%22275%22%20cy%3D%22697%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.30%22/%3E%3Ccircle%20cx%3D%22198%22%20cy%3D%22334%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.55%22/%3E%3Ccircle%20cx%3D%221055%22%20cy%3D%22363%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.39%22/%3E%3Ccircle%20cx%3D%22764%22%20cy%3D%2213%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.80%22/%3E%3Ccircle%20cx%3D%22371%22%20cy%3D%22417%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.48%22/%3E%3Ccircle%20cx%3D%22758%22%20cy%3D%22415%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.64%22/%3E%3Ccircle%20cx%3D%22194%22%20cy%3D%22524%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.46%22/%3E%3Ccircle%20cx%3D%22173%22%20cy%3D%22721%22%20r%3D%221.2%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.62%22/%3E%3Ccircle%20cx%3D%22391%22%20cy%3D%22516%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.77%22/%3E%3Ccircle%20cx%3D%22528%22%20cy%3D%22286%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.73%22/%3E%3Ccircle%20cx%3D%22327%22%20cy%3D%22415%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.83%22/%3E%3Ccircle%20cx%3D%221103%22%20cy%3D%22711%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.75%22/%3E%3Ccircle%20cx%3D%22371%22%20cy%3D%22415%22%20r%3D%220.7%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.72%22/%3E%3Ccircle%20cx%3D%22144%22%20cy%3D%22349%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.55%22/%3E%3Ccircle%20cx%3D%2221%22%20cy%3D%22364%22%20r%3D%220.5%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.40%22/%3E%3Ccircle%20cx%3D%221364%22%20cy%3D%22306%22%20r%3D%220.9%22%20fill%3D%22%23cfe3ff%22%20fill-opacity%3D%220.39%22/%3E%3C/svg%3E"),
+    radial-gradient(1000px 600px at 12% -8%, #0f2a55 0%, transparent 60%),
+    radial-gradient(900px 600px at 105% 20%, #2a1245 0%, transparent 55%),
+    var(--bg);
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
 }
-a { color: var(--cyan); }
+a { color: var(--accent); }
 img { max-width: 100%; display: block; }
-.wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
 .skip { position: absolute; left: -999px; }
-.skip:focus { left: 16px; top: 8px; background: var(--cyan); color: #04101c; padding: 8px 12px; border-radius: 8px; z-index: 10; }
+.skip:focus { left: 16px; top: 8px; background: var(--accent); color: #04101c; padding: 8px 12px; border-radius: 8px; z-index: 20; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 8px; }
 
-header.top { position: sticky; top: 0; z-index: 5; backdrop-filter: blur(10px); background: #0b1220cc; border-bottom: 1px solid var(--line); }
-.bar { display: flex; align-items: center; gap: 12px; padding: 10px 0; }
-.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.1rem; color: var(--text); text-decoration: none; }
-.brand img { width: 34px; height: 38px; object-fit: contain; }
+.glass {
+  background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .35), inset 0 1px 0 rgba(255, 255, 255, .04);
+}
+
+/* ---------- header ---------- */
+header.top { position: sticky; top: 12px; z-index: 10; margin: 12px auto 0; max-width: 1120px; width: calc(100% - 24px); }
+.bar { display: flex; align-items: center; gap: 14px; padding: 8px 14px; }
+.brand { display: flex; align-items: center; gap: 12px; color: var(--text); text-decoration: none; }
+.brand img { width: 40px; height: 46px; object-fit: contain; }
+.brand b { display: block; font-size: 1.1rem; letter-spacing: .3px; line-height: 1.2; }
+.brand small { display: block; color: var(--muted); font-size: .78rem; line-height: 1.2; }
 .spacer { flex: 1; }
-.lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
-.lang button { background: transparent; color: var(--muted); border: 0; padding: 6px 14px; font: inherit; font-size: .9rem; cursor: pointer; }
-.lang button[aria-pressed="true"] { background: var(--cyan); color: #04101c; font-weight: 700; }
-.lang button:focus-visible, .btn:focus-visible, .tabs button:focus-visible, .copy:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+.nav { display: flex; gap: 6px; align-items: center; }
+.nav a.link { color: var(--soft); text-decoration: none; padding: 8px 12px; border-radius: 10px; font-size: .95rem; }
+.nav a.link:hover { background: rgba(56, 189, 248, .1); color: var(--text); }
+.lang { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 999px; overflow: hidden; }
+.lang button { background: transparent; color: var(--muted); border: 0; padding: 6px 14px; font: inherit; font-size: .88rem; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--accent); color: #04101c; font-weight: 700; }
 
-.hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 32px; align-items: center; padding: 56px 0 40px; }
-.hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.1; margin: 0 0 14px; }
-.hero h1 span { color: var(--cyan); }
-.hero p.lead { font-size: 1.15rem; color: var(--text); margin: 0 0 22px; max-width: 34em; }
-.hero .logo { justify-self: center; width: min(320px, 70%); filter: drop-shadow(0 10px 40px #38bdf833); }
-.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; }
-.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 12px; font-weight: 700; text-decoration: none; border: 1px solid var(--line); color: var(--text); background: var(--card); }
-.btn.primary { background: var(--cyan); color: #04101c; border-color: var(--cyan); }
-.btn:hover { filter: brightness(1.1); }
-.notice { display: inline-block; border: 1px solid #f59e0b66; background: #f59e0b14; color: #fcd9a0; border-radius: 12px; padding: 8px 14px; font-size: .92rem; }
+/* ---------- buttons ---------- */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 999px; font-weight: 700; text-decoration: none; color: var(--text); background: rgba(15, 26, 44, .8); border: 1px solid var(--line-strong); transition: transform .15s, filter .15s; }
+.btn:hover { filter: brightness(1.15); transform: translateY(-1px); }
+.btn.primary { background: #a8cbff; color: #0b2545; border-color: #a8cbff; box-shadow: 0 8px 28px rgba(56, 189, 248, .25); }
+.btn svg { width: 18px; height: 18px; flex: none; }
 
-section { padding: 40px 0; }
-h2 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); margin: 0 0 8px; }
-.sub { color: var(--muted); margin: 0 0 24px; max-width: 46em; }
+/* ---------- hero ---------- */
+.hero { display: grid; grid-template-columns: 1.05fr .95fr; gap: 28px; align-items: center; padding: 64px 0 36px; }
+.eyebrow { display: inline-block; font-size: .78rem; letter-spacing: 1.6px; text-transform: uppercase; color: var(--soft); margin-bottom: 14px; }
+.hero h1 { margin: 0; font-size: clamp(3rem, 8vw, 5.4rem); line-height: 1; letter-spacing: -1px; background: linear-gradient(180deg, #ffffff 10%, #a8d8ff 60%, #38bdf8); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero .triad { font-size: clamp(1.1rem, 2.4vw, 1.5rem); margin: 10px 0 18px; font-weight: 500; }
+.triad .p { color: var(--accent); } .triad .w { color: var(--orange); } .triad .n { color: var(--good); } .triad i { color: var(--muted); font-style: normal; padding: 0 .35em; }
+.lead { font-size: 1.12rem; color: #cdd9ec; max-width: 34em; margin: 0 0 24px; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.banner { display: inline-block; background: rgba(12, 42, 63, .7); border: 1px solid var(--line-strong); border-radius: 12px; padding: 8px 14px; color: #bbccdd; font-size: .92rem; }
+
+/* mission ring */
+.ring-wrap { position: relative; justify-self: center; width: min(430px, 100%); aspect-ratio: 1; }
+.ring-wrap svg.ring { width: 100%; height: 100%; display: block; filter: drop-shadow(0 0 28px rgba(56, 189, 248, .22)); }
+.ring-center { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; pointer-events: none; }
+.ring-center img { width: 96px; margin: 0 auto 4px; filter: drop-shadow(0 6px 24px rgba(56, 189, 248, .4)); }
+.ring-center b { font-size: 1.9rem; line-height: 1.1; }
+.ring-center span { color: var(--muted); font-size: .9rem; }
+.orbit { transform-origin: 215px 215px; animation: spin 48s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.chip { position: absolute; display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 999px; font-size: .8rem; font-weight: 600; background: rgba(8, 16, 32, .82); border: 1px solid rgba(125, 170, 255, .28); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); white-space: nowrap; box-shadow: 0 8px 24px rgba(0, 0, 0, .4); }
+.chip i { width: 9px; height: 9px; border-radius: 50%; background: var(--c); box-shadow: 0 0 10px var(--c); }
+.chip.c1 { top: 6%; left: -6%; --c: var(--good); }
+.chip.c2 { top: 14%; right: -8%; --c: var(--gold); }
+.chip.c3 { bottom: 12%; left: -10%; --c: var(--good); }
+.chip.c4 { bottom: 4%; right: -2%; --c: var(--gray); }
+
+/* ---------- sections ---------- */
+section { padding: 48px 0; }
+section h2 { font-size: clamp(1.6rem, 3.6vw, 2.3rem); line-height: 1.15; margin: 0 0 10px; }
+.sub { color: var(--muted); margin: 0 0 28px; max-width: 46em; }
 
 .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
-.card h3 { margin: 10px 0 6px; font-size: 1.25rem; }
-.card p { margin: 0; color: var(--muted); font-size: .98rem; }
-.dot { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; color: #04101c; }
+.pillar { padding: 24px; position: relative; overflow: hidden; }
+.pillar::after { content: ""; position: absolute; right: -40px; top: -40px; width: 140px; height: 140px; border-radius: 50%; background: radial-gradient(circle, var(--c) 0%, transparent 70%); opacity: .16; }
+.pillar .ico { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; color: var(--c); background: rgba(255, 255, 255, .04); border: 1px solid var(--line); box-shadow: 0 0 24px color-mix(in srgb, var(--c) 30%, transparent); }
+.pillar .ico svg { width: 26px; height: 26px; }
+.pillar h3 { margin: 16px 0 6px; font-size: 1.35rem; }
+.pillar p { margin: 0; color: var(--muted); font-size: .98rem; }
+.pillar small { display: block; margin-top: 12px; color: var(--c); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; font-size: .72rem; }
 
-.install { background: var(--bg-2); border-block: 1px solid var(--line); }
+.kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.kpi { padding: 18px 22px; border-top: 3px solid var(--c); }
+.kpi b { display: block; font-size: 2.5rem; line-height: 1.1; font-variant-numeric: tabular-nums; color: var(--c); }
+.kpi span { color: var(--muted); font-size: .93rem; }
+
+.flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; counter-reset: f; }
+.flow .step { padding: 20px; position: relative; }
+.flow .step::before { counter-increment: f; content: counter(f); display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: rgba(56, 189, 248, .15); color: var(--accent); border: 1px solid rgba(56, 189, 248, .5); font-weight: 800; margin-bottom: 12px; }
+.flow h3 { margin: 0 0 6px; font-size: 1.1rem; }
+.flow p { margin: 0; color: var(--muted); font-size: .94rem; }
+.legend { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.legend .chip { position: static; }
+
+.install-box { padding: 28px; }
 .tabs { display: inline-flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
-.tabs button { background: var(--card); color: var(--muted); border: 1px solid var(--line); border-radius: 10px; padding: 8px 16px; font: inherit; cursor: pointer; }
-.tabs button[aria-selected="true"] { background: var(--cyan); color: #04101c; border-color: var(--cyan); font-weight: 700; }
-.cmd { display: flex; align-items: stretch; background: #070d19; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
-.cmd code { flex: 1; padding: 16px; overflow-x: auto; white-space: pre; font: .95rem/1.4 ui-monospace, "Cascadia Code", Consolas, Menlo, monospace; color: #d7e6ff; }
-.copy { background: var(--card); color: var(--text); border: 0; border-left: 1px solid var(--line); padding: 0 18px; font: inherit; font-weight: 700; cursor: pointer; min-width: 96px; }
-.copy.done { background: var(--green); color: #04101c; }
+.tabs button { background: rgba(15, 26, 44, .8); color: var(--muted); border: 1px solid var(--line-strong); border-radius: 999px; padding: 8px 18px; font: inherit; cursor: pointer; }
+.tabs button[aria-selected="true"] { background: #a8cbff; color: #0b2545; border-color: #a8cbff; font-weight: 700; }
+.term { background: #050a14; border: 1px solid var(--line-strong); border-radius: 14px; overflow: hidden; }
+.term .dots { display: flex; gap: 6px; padding: 9px 14px; border-bottom: 1px solid var(--line-strong); }
+.term .dots i { width: 10px; height: 10px; border-radius: 50%; background: #2a3a5c; }
+.term .row { display: flex; align-items: stretch; }
+.term code { flex: 1; padding: 16px; overflow-x: auto; white-space: pre; font: .95rem/1.4 ui-monospace, "Cascadia Code", Consolas, Menlo, monospace; color: #cfe3ff; }
+.term code::before { content: "$ "; color: var(--good); }
+.copy { background: rgba(15, 26, 44, .9); color: var(--text); border: 0; border-left: 1px solid var(--line-strong); padding: 0 20px; font: inherit; font-weight: 700; cursor: pointer; min-width: 100px; }
+.copy.done { background: var(--good); color: #04101c; }
 .panel[hidden] { display: none; }
-ol.steps { counter-reset: s; list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 14px; }
-ol.steps li { counter-increment: s; position: relative; padding: 14px 16px 14px 62px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; }
-ol.steps li::before { content: counter(s); position: absolute; left: 16px; top: 12px; width: 32px; height: 32px; border-radius: 50%; background: var(--cyan); color: #04101c; display: grid; place-items: center; font-weight: 800; }
+ol.steps { counter-reset: s; list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 12px; }
+ol.steps li { counter-increment: s; position: relative; padding: 14px 16px 14px 64px; background: rgba(8, 16, 32, .55); border: 1px solid var(--line-strong); border-radius: 14px; }
+ol.steps li::before { content: counter(s); position: absolute; left: 16px; top: 13px; width: 34px; height: 34px; border-radius: 50%; background: rgba(56, 189, 248, .15); color: var(--accent); border: 1px solid rgba(56, 189, 248, .5); display: grid; place-items: center; font-weight: 800; }
 ol.steps b { display: block; }
-ol.steps span, ol.steps li > div { color: var(--muted); }
-kbd, .inline { background: #070d19; border: 1px solid var(--line); border-radius: 6px; padding: 1px 7px; font: .9em ui-monospace, Consolas, monospace; color: #d7e6ff; }
-.notes { margin: 22px 0 0; color: var(--muted); font-size: .95rem; display: grid; gap: 6px; padding-left: 20px; }
+ol.steps li > div { color: var(--muted); }
+.inline { background: #050a14; border: 1px solid var(--line-strong); border-radius: 6px; padding: 1px 7px; font: .9em ui-monospace, Consolas, monospace; color: #cfe3ff; }
+.notes { margin: 22px 0 0; color: var(--muted); font-size: .94rem; display: grid; gap: 6px; padding-left: 20px; }
 
 .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 figure { margin: 0; }
-figure img { border-radius: 14px; border: 1px solid var(--line); width: 100%; height: auto; }
-figcaption { color: var(--muted); font-size: .92rem; margin-top: 8px; }
+.frame { overflow: hidden; border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 20px 60px rgba(0, 0, 0, .5), 0 0 40px rgba(56, 189, 248, .08); background: #050a14; }
+.frame .dots { display: flex; gap: 6px; padding: 9px 14px; border-bottom: 1px solid var(--line-strong); }
+.frame .dots i { width: 10px; height: 10px; border-radius: 50%; background: #2a3a5c; }
+.frame img { width: 100%; height: auto; }
+figcaption { color: var(--muted); font-size: .92rem; margin-top: 10px; }
 
-.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.stat { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; }
-.stat b { display: block; font-size: 2.4rem; line-height: 1.1; }
-.stat span { color: var(--muted); font-size: .95rem; }
-.flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; counter-reset: f; }
-.flow .step { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; position: relative; }
-.flow .step::before { counter-increment: f; content: counter(f); display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--cyan); color: #04101c; font-weight: 800; margin-bottom: 10px; }
-.flow h3 { margin: 0 0 6px; font-size: 1.1rem; }
-.flow p { margin: 0; color: var(--muted); font-size: .95rem; }
-.oss { background: linear-gradient(135deg, #12315a66, #3b1d6a44); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: grid; gap: 14px; }
-.oss p { margin: 0; max-width: 46em; }
-details { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 4px 18px; }
+.oss { padding: 32px; display: grid; gap: 14px; background: linear-gradient(135deg, rgba(15, 42, 85, .55), rgba(42, 18, 69, .55)); }
+.oss h2 { margin: 0; }
+.oss p { margin: 0; max-width: 46em; color: #cdd9ec; }
+details { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 2px 18px; }
 details + details { margin-top: 10px; }
 summary { cursor: pointer; padding: 14px 0; font-weight: 700; }
-summary:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; border-radius: 6px; }
 details p { margin: 0 0 14px; color: var(--muted); }
-.frame { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #070d19; }
-.frame .dots { display: flex; gap: 6px; padding: 8px 12px; border-bottom: 1px solid var(--line); }
-.frame .dots i { width: 10px; height: 10px; border-radius: 50%; background: #2a3a5c; }
-.frame img { border: 0; border-radius: 0; }
-footer { padding: 32px 0 48px; color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line); }
+
+footer { padding: 36px 0 56px; color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line); margin-top: 24px; }
 footer p { margin: 0 0 6px; }
 
-@media (max-width: 820px) {
-  .hero { grid-template-columns: 1fr; padding-top: 32px; }
-  .hero .logo { order: -1; width: 200px; }
-  .cards, .shots, .stats, .flow { grid-template-columns: 1fr; }
-  .brand span { display: none; }
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; padding-top: 40px; }
+  .ring-wrap { order: -1; width: min(340px, 86%); }
+  .chip.c1 { left: 0; } .chip.c2 { right: 0; } .chip.c3 { left: 0; } .chip.c4 { right: 0; }
+  .cards, .shots, .kpis, .flow { grid-template-columns: 1fr; }
+  .brand small, .nav a.link { display: none; }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .orbit { animation: none; } .btn { transition: none; } }
 </style>
 </head>
 <body>
 <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
-<header class="top">
-  <div class="wrap bar">
-    <a class="brand" href="#top"><img src="img/pewonu.png" alt=""><span>PeWoNu</span></a>
+<header class="top glass">
+  <div class="bar">
+    <a class="brand" href="#top"><img src="img/pewonu.png" alt=""><span><b>PeWoNu</b><small>Peace · WOD · Nutrition</small></span></a>
     <span class="spacer"></span>
-    <a class="btn" href="https://github.com/MrT-coder/pewonu" rel="noopener" data-i18n="gh_short">GitHub</a>
+    <nav class="nav" aria-label="Main">
+      <a class="link" href="#install" data-i18n="nav_install">Install</a>
+      <a class="link" href="https://github.com/MrT-coder/pewonu" rel="noopener">GitHub</a>
+    </nav>
     <div class="lang" role="group" aria-label="Language">
       <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
       <button type="button" data-set-lang="es" aria-pressed="false">ES</button>
@@ -145,69 +199,91 @@ footer p { margin: 0 0 6px; }
   <div class="wrap" id="top">
     <div class="hero">
       <div>
-        <h1><span>Pe</span>ace · <span>WO</span>D · <span>Nu</span>trition</h1>
+        <span class="eyebrow">NASA Space Apps Challenge 2026</span>
+        <h1>PeWoNu</h1>
+        <p class="triad"><span class="p">Peace</span><i>·</i><span class="w">WOD</span><i>·</i><span class="n">Nutrition</span></p>
         <p class="lead" data-i18n="lead">A wellbeing prototype for astronauts on long missions. It compares each person with their own baseline, not with an average, and shares only what the astronaut decides.</p>
         <div class="cta">
-          <a class="btn primary" href="https://github.com/MrT-coder/pewonu" rel="noopener" data-i18n="cta_gh">View on GitHub</a>
-          <a class="btn" href="#install" data-i18n="cta_install">Install in one command</a>
+          <a class="btn primary" href="#install" data-i18n="cta_install">Install in one command</a>
+          <a class="btn" href="https://github.com/MrT-coder/pewonu" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg><span data-i18n="cta_gh">View on GitHub</span></a>
         </div>
-        <span class="notice" data-i18n="notice">Prototype with simulated, analog data. It does not diagnose.</span>
+        <span class="banner" data-i18n="notice">Prototype with simulated, analog data. It does not diagnose.</span>
       </div>
-      <img class="logo" src="img/pewonu.png" alt="PeWoNu logo" width="320" height="365">
+
+      <div class="ring-wrap" aria-hidden="true">
+        <svg class="ring" viewBox="0 0 430 430">
+          <circle cx="215" cy="215" r="170" fill="none" stroke="#14213a" stroke-width="22"/>
+          <g transform="rotate(-90 215 215)" fill="none" stroke-width="22" stroke-linecap="round">
+            <circle cx="215" cy="215" r="170" stroke="#38bdf8" stroke-dasharray="330 1068" stroke-dashoffset="0"/>
+          <circle cx="215" cy="215" r="170" stroke="#a78bfa" stroke-dasharray="380 1068" stroke-dashoffset="-370"/>
+            <circle cx="215" cy="215" r="170" stroke="#fb923c" stroke-dasharray="250 1068" stroke-dashoffset="-790"/>
+          </g>
+          <g class="orbit"><circle cx="215" cy="45" r="15" fill="#0b1424" stroke="#38bdf8" stroke-width="3"/><circle cx="215" cy="45" r="5" fill="#38bdf8"/></g>
+        </svg>
+        <div class="ring-center"><img src="img/pewonu.png" alt=""><b>E-1</b><span data-i18n="ring_place">Earth</span></div>
+        <span class="chip c1"><i></i><span data-i18n="c1">Sleep · In range</span></span>
+        <span class="chip c2"><i></i><span data-i18n="c2">Pulse · Outside range</span></span>
+        <span class="chip c3"><i></i><span data-i18n="c3">Balance · In range</span></span>
+        <span class="chip c4"><i></i><span data-i18n="c4">Bones · No data</span></span>
+      </div>
     </div>
 
-    <section aria-labelledby="pillars-h" style="padding-top:8px">
+    <section aria-labelledby="pillars-h" style="padding-top:16px">
+      <span class="eyebrow" data-i18n="eb_pillars">Three pillars</span>
       <h2 id="pillars-h" data-i18n="pillars_h">Three pillars, one platform</h2>
       <p class="sub" data-i18n="pillars_sub">Mind, movement and food for crews that are too far from Earth for real-time help.</p>
       <div class="cards">
-        <div class="card"><div class="dot" style="background:var(--cyan)">P</div><h3>Peace</h3><p data-i18n="peace_p">Mood check, a guided manual pulse and an optional voice log. The audio is discarded; only numbers are kept and no emotion is inferred.</p></div>
-        <div class="card"><div class="dot" style="background:var(--orange)">W</div><h3>WOD</h3><p data-i18n="wod_p">The workout of the day on the three ISS machines (T2 treadmill, CEVIS bike, ARED resistive device), from age, weight and bone density.</p></div>
-        <div class="card"><div class="dot" style="background:var(--green)">N</div><h3>Nutrition</h3><p data-i18n="nut_p">A daily energy estimate next to the range used by station dietitians, and a meal log by ISS food type.</p></div>
+        <div class="glass pillar" style="--c:var(--accent)"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg></div><h3>Peace</h3><p data-i18n="peace_p">Mood check, a guided manual pulse and an optional voice log. The audio is discarded; only numbers are kept and no emotion is inferred.</p><small data-i18n="peace_k">Mind</small></div>
+        <div class="glass pillar" style="--c:var(--orange)"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7v10M3 9.5v5M18 7v10M21 9.5v5M6 12h12"/></svg></div><h3>WOD</h3><p data-i18n="wod_p">The workout of the day on the three ISS machines (T2 treadmill, CEVIS bike, ARED resistive device), from age, weight and bone density.</p><small data-i18n="wod_k">Movement</small></div>
+        <div class="glass pillar" style="--c:var(--good)"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3v7a2 2 0 0 0 4 0V3M9 10v11M17 3c-2 2-3 5-3 8h3v10"/></svg></div><h3>Nutrition</h3><p data-i18n="nut_p">A daily energy estimate next to the range used by station dietitians, and a meal log by ISS food type.</p><small data-i18n="nut_k">Fuel</small></div>
       </div>
     </section>
-  </div>
 
-  <div class="wrap">
-    <section aria-labelledby="why-h">
+    <section aria-labelledby="why-h" style="padding-top:8px">
+      <span class="eyebrow" data-i18n="eb_why">The challenge</span>
       <h2 id="why-h" data-i18n="why_h">Why it matters</h2>
       <p class="sub" data-i18n="why_sub">On a mission to Mars the crew is far from Earth and from its doctors, and every message takes minutes to arrive.</p>
-      <div class="stats">
-        <div class="stat"><b style="color:var(--cyan)">3–22 min</b><span data-i18n="st1">one-way communication delay between Earth and Mars</span></div>
-        <div class="stat"><b style="color:#a78bfa">5</b><span data-i18n="st2">hazards of human spaceflight listed by NASA, and they reinforce one another</span></div>
-        <div class="stat"><b style="color:var(--orange)">1–2 %</b><span data-i18n="st3">of bone density lost per month in space without countermeasures</span></div>
+      <div class="kpis">
+        <div class="glass kpi" style="--c:var(--accent)"><b>3–22 min</b><span data-i18n="st1">one-way communication delay between Earth and Mars</span></div>
+        <div class="glass kpi" style="--c:var(--purple)"><b>5</b><span data-i18n="st2">hazards of human spaceflight listed by NASA, and they reinforce one another</span></div>
+        <div class="glass kpi" style="--c:var(--orange)"><b>1–2 %</b><span data-i18n="st3">of bone density lost per month in space without countermeasures</span></div>
       </div>
     </section>
 
     <section aria-labelledby="how-h" style="padding-top:8px">
+      <span class="eyebrow" data-i18n="eb_how">The method</span>
       <h2 id="how-h" data-i18n="how_h">How it works</h2>
       <p class="sub" data-i18n="how_sub">Normal is personal, so every status is compared with the person's own history, and it says so.</p>
       <div class="flow">
-        <div class="step"><h3 data-i18n="f1_t">Intake</h3><p data-i18n="f1_d">Mood faces, manual pulse, simulated wearables, workouts and meals.</p></div>
-        <div class="step"><h3 data-i18n="f2_t">Personal baseline</h3><p data-i18n="f2_d">A median with a robust band per person and per space (Earth, spacecraft, planet). Gray when there is not enough data.</p></div>
-        <div class="step"><h3 data-i18n="f3_t">Status with a reason</h3><p data-i18n="f3_d">Green, amber, red or gray, always saying what it was compared with. No AI model in the alert path.</p></div>
-        <div class="step"><h3 data-i18n="f4_t">Share what you choose</h3><p data-i18n="f4_d">Only what the astronaut confirms, as HL7 FHIR R4, to the ground base after a simulated delay.</p></div>
+        <div class="glass step"><h3 data-i18n="f1_t">Intake</h3><p data-i18n="f1_d">Mood faces, manual pulse, simulated wearables, workouts and meals.</p></div>
+        <div class="glass step"><h3 data-i18n="f2_t">Personal baseline</h3><p data-i18n="f2_d">A median with a robust band per person and per space (Earth, spacecraft, planet). Gray when there is not enough data.</p></div>
+        <div class="glass step"><h3 data-i18n="f3_t">Status with a reason</h3><p data-i18n="f3_d">Green, amber, red or gray, always saying what it was compared with. No AI model in the alert path.</p></div>
+        <div class="glass step"><h3 data-i18n="f4_t">Share what you choose</h3><p data-i18n="f4_d">Only what the astronaut confirms, as HL7 FHIR R4, to the ground base after a simulated delay.</p></div>
+      </div>
+      <div class="legend" aria-label="Status colors">
+        <span class="chip" style="--c:var(--good)"><i></i><span data-i18n="lg1">In range</span></span>
+        <span class="chip" style="--c:var(--gold)"><i></i><span data-i18n="lg2">Outside range</span></span>
+        <span class="chip" style="--c:var(--act)"><i></i><span data-i18n="lg3">Far outside range</span></span>
+        <span class="chip" style="--c:var(--gray)"><i></i><span data-i18n="lg4">Not enough data</span></span>
       </div>
     </section>
-  </div>
 
-  <div class="install" id="install">
-    <div class="wrap">
-      <section aria-labelledby="install-h">
-        <h2 id="install-h" data-i18n="install_h">Install it in one command</h2>
-        <p class="sub" data-i18n="install_sub">The installer sets up everything you need: uv, the right Python, the code and every dependency. Then it starts PeWoNu.</p>
-
+    <section id="install" aria-labelledby="install-h">
+      <span class="eyebrow" data-i18n="eb_install">Get started</span>
+      <h2 id="install-h" data-i18n="install_h">Install it in one command</h2>
+      <p class="sub" data-i18n="install_sub">The installer sets up everything you need: uv, the right Python, the code and every dependency. Then it starts PeWoNu.</p>
+      <div class="glass install-box">
         <div class="tabs" role="tablist" aria-label="Operating system">
           <button type="button" role="tab" id="tab-win" aria-controls="panel-win" aria-selected="true" data-tab="win">Windows</button>
           <button type="button" role="tab" id="tab-nix" aria-controls="panel-nix" aria-selected="false" data-tab="nix">macOS / Linux</button>
         </div>
-
         <div class="panel" id="panel-win" role="tabpanel" aria-labelledby="tab-win">
-          <div class="cmd"><code id="cmd-win">irm https://raw.githubusercontent.com/MrT-coder/pewonu/develop/install.ps1 | iex</code><button type="button" class="copy" data-copy="cmd-win" data-i18n="copy">Copy</button></div>
-          <p class="sub" style="margin-top:10px" data-i18n="win_hint">Open PowerShell (Start menu → type “PowerShell”) and paste the command.</p>
+          <div class="term"><div class="dots" aria-hidden="true"><i></i><i></i><i></i></div><div class="row"><code id="cmd-win">irm https://raw.githubusercontent.com/MrT-coder/pewonu/develop/install.ps1 | iex</code><button type="button" class="copy" data-copy="cmd-win" data-i18n="copy">Copy</button></div></div>
+          <p class="sub" style="margin:10px 0 0" data-i18n="win_hint">Open PowerShell (Start menu → type “PowerShell”) and paste the command.</p>
         </div>
         <div class="panel" id="panel-nix" role="tabpanel" aria-labelledby="tab-nix" hidden>
-          <div class="cmd"><code id="cmd-nix">curl -LsSf https://raw.githubusercontent.com/MrT-coder/pewonu/develop/install.sh | sh</code><button type="button" class="copy" data-copy="cmd-nix" data-i18n="copy">Copy</button></div>
-          <p class="sub" style="margin-top:10px" data-i18n="nix_hint">Open a terminal and paste the command.</p>
+          <div class="term"><div class="dots" aria-hidden="true"><i></i><i></i><i></i></div><div class="row"><code id="cmd-nix">curl -LsSf https://raw.githubusercontent.com/MrT-coder/pewonu/develop/install.sh | sh</code><button type="button" class="copy" data-copy="cmd-nix" data-i18n="copy">Copy</button></div></div>
+          <p class="sub" style="margin:10px 0 0" data-i18n="nix_hint">Open a terminal and paste the command.</p>
         </div>
 
         <ol class="steps">
@@ -216,28 +292,28 @@ footer p { margin: 0 0 6px; }
           <li><b data-i18n="s3_t">Sign in as a simulated astronaut</b><div data-i18n="s3_d">Use the code <span class="inline">AST-0001</span>, <span class="inline">AST-0002</span> or <span class="inline">AST-0003</span>. Each one is a different case. The English / Español button changes the language.</div></li>
           <li><b data-i18n="s4_t">Start it again any time</b><div><span class="inline">cd ~/pewonu</span> <span data-i18n="s4_and">and</span> <span class="inline">uv run pewonu</span> (Windows: <span class="inline">cd $HOME\pewonu</span>)</div></li>
         </ol>
-
         <ul class="notes">
           <li data-i18n="n1">Prefer to read the script first? <a href="https://github.com/MrT-coder/pewonu/blob/develop/install.ps1" rel="noopener">install.ps1</a> · <a href="https://github.com/MrT-coder/pewonu/blob/develop/install.sh" rel="noopener">install.sh</a>. Step-by-step manual install is in the <a href="https://github.com/MrT-coder/pewonu#readme" rel="noopener">README</a>.</li>
           <li data-i18n="n2">On Linux, the optional voice log needs the PortAudio library: <span class="inline">sudo apt install libportaudio2</span>.</li>
           <li data-i18n="n3">To install in another folder, set <span class="inline">PEWONU_DIR</span> before running the command.</li>
         </ul>
-      </section>
-    </div>
-  </div>
+      </div>
+    </section>
 
-  <div class="wrap">
     <section aria-labelledby="shots-h">
+      <span class="eyebrow" data-i18n="eb_shots">Two systems</span>
       <h2 id="shots-h" data-i18n="shots_h">The two systems</h2>
       <p class="sub" data-i18n="shots_sub">The astronaut app runs on board. The ground base shows only what the astronaut chose to send, after the communication delay.</p>
       <div class="shots">
-        <figure><div class="frame"><div class="dots" aria-hidden="true"><i></i><i></i><i></i></div><img id="img-app" src="img/app-en.jpg" alt="Astronaut app: body figure colored by each system's state, mission ring and data panel" width="1200" height="750"></div><figcaption data-i18n="cap_app">Astronaut app: body figure, mission ring and the three pillars.</figcaption></figure>
-        <figure><div class="frame"><div class="dots" aria-hidden="true"><i></i><i></i><i></i></div><img id="img-ground" src="img/ground-en.jpg" alt="Ground base: crew members, what needs attention and packages received" width="1200" height="750"></div><figcaption data-i18n="cap_ground">Ground base: crew members and what needs attention.</figcaption></figure>
+        <figure><div class="frame"><div class="dots" aria-hidden="true"><i></i><i></i><i></i></div><img id="img-app" src="img/app-en.jpg" alt="Astronaut app" width="1200" height="750"></div><figcaption data-i18n="cap_app">Astronaut app: body figure, mission ring and the three pillars.</figcaption></figure>
+        <figure><div class="frame"><div class="dots" aria-hidden="true"><i></i><i></i><i></i></div><img id="img-ground" src="img/ground-en.jpg" alt="Ground base" width="1200" height="750"></div><figcaption data-i18n="cap_ground">Ground base: crew members and what needs attention.</figcaption></figure>
       </div>
     </section>
+
     <section aria-labelledby="oss-h">
-      <div class="oss">
-        <h2 id="oss-h" style="margin:0" data-i18n="oss_h">Open source, with credit</h2>
+      <div class="glass oss">
+        <span class="eyebrow" style="margin:0" data-i18n="eb_oss">MIT license</span>
+        <h2 id="oss-h" data-i18n="oss_h">Open source, with credit</h2>
         <p data-i18n="oss_p">PeWoNu is released under the MIT license. Use it, fork it and build on it: just keep the license notice and give credit to the PeWoNu team.</p>
         <div class="cta" style="margin:0">
           <a class="btn primary" href="https://github.com/MrT-coder/pewonu" rel="noopener" data-i18n="cta_gh">View on GitHub</a>
@@ -247,6 +323,7 @@ footer p { margin: 0 0 6px; }
     </section>
 
     <section aria-labelledby="faq-h">
+      <span class="eyebrow" data-i18n="eb_faq">FAQ</span>
       <h2 id="faq-h" data-i18n="faq_h">Frequently asked questions</h2>
       <details><summary data-i18n="q1">Does PeWoNu diagnose?</summary><p data-i18n="a1">No. It compares a person with their own history, explains what it compared against and suggests who could be told. It gives no diagnosis, no doses and no clinical thresholds.</p></details>
       <details><summary data-i18n="q2">Does it need internet?</summary><p data-i18n="a2">Only for the first install. After that, both systems run on your computer without internet.</p></details>
@@ -268,15 +345,26 @@ footer p { margin: 0 0 6px; }
 (function () {
   var T = {
     en: {
-      skip: "Skip to content", gh_short: "GitHub",
+      skip: "Skip to content", nav_install: "Install",
       lead: "A wellbeing prototype for astronauts on long missions. It compares each person with their own baseline, not with an average, and shares only what the astronaut decides.",
       cta_gh: "View on GitHub", cta_install: "Install in one command",
       notice: "Prototype with simulated, analog data. It does not diagnose.",
+      ring_place: "Earth", c1: "Sleep · In range", c2: "Pulse · Outside range", c3: "Balance · In range", c4: "Bones · No data",
+      eb_pillars: "Three pillars", eb_why: "The challenge", eb_how: "The method", eb_install: "Get started", eb_shots: "Two systems", eb_oss: "MIT license", eb_faq: "FAQ",
       pillars_h: "Three pillars, one platform",
       pillars_sub: "Mind, movement and food for crews that are too far from Earth for real-time help.",
       peace_p: "Mood check, a guided manual pulse and an optional voice log. The audio is discarded; only numbers are kept and no emotion is inferred.",
       wod_p: "The workout of the day on the three ISS machines (T2 treadmill, CEVIS bike, ARED resistive device), from age, weight and bone density.",
       nut_p: "A daily energy estimate next to the range used by station dietitians, and a meal log by ISS food type.",
+      peace_k: "Mind", wod_k: "Movement", nut_k: "Fuel",
+      why_h: "Why it matters", why_sub: "On a mission to Mars the crew is far from Earth and from its doctors, and every message takes minutes to arrive.",
+      st1: "one-way communication delay between Earth and Mars", st2: "hazards of human spaceflight listed by NASA, and they reinforce one another", st3: "of bone density lost per month in space without countermeasures",
+      how_h: "How it works", how_sub: "Normal is personal, so every status is compared with the person's own history, and it says so.",
+      f1_t: "Intake", f1_d: "Mood faces, manual pulse, simulated wearables, workouts and meals.",
+      f2_t: "Personal baseline", f2_d: "A median with a robust band per person and per space (Earth, spacecraft, planet). Gray when there is not enough data.",
+      f3_t: "Status with a reason", f3_d: "Green, amber, red or gray, always saying what it was compared with. No AI model in the alert path.",
+      f4_t: "Share what you choose", f4_d: "Only what the astronaut confirms, as HL7 FHIR R4, to the ground base after a simulated delay.",
+      lg1: "In range", lg2: "Outside range", lg3: "Far outside range", lg4: "Not enough data",
       install_h: "Install it in one command",
       install_sub: "The installer sets up everything you need: uv, the right Python, the code and every dependency. Then it starts PeWoNu.",
       copy: "Copy", copied: "Copied",
@@ -291,35 +379,39 @@ footer p { margin: 0 0 6px; }
       n3: "To install in another folder, set <span class=\"inline\">PEWONU_DIR</span> before running the command.",
       shots_h: "The two systems", shots_sub: "The astronaut app runs on board. The ground base shows only what the astronaut chose to send, after the communication delay.",
       cap_app: "Astronaut app: body figure, mission ring and the three pillars.", cap_ground: "Ground base: crew members and what needs attention.",
-      f1: "NASA Space Apps Challenge 2026 · “Create Health Monitoring Software for Astronauts on Space Missions”.",
-      f2: "All crew and data are fictional and simulated. PeWoNu does not diagnose and has not been validated for use in space. This is a hackathon project, not affiliated with or endorsed by NASA.",
-      why_h: "Why it matters", why_sub: "On a mission to Mars the crew is far from Earth and from its doctors, and every message takes minutes to arrive.",
-      st1: "one-way communication delay between Earth and Mars", st2: "hazards of human spaceflight listed by NASA, and they reinforce one another", st3: "of bone density lost per month in space without countermeasures",
-      how_h: "How it works", how_sub: "Normal is personal, so every status is compared with the person's own history, and it says so.",
-      f1_t: "Intake", f1_d: "Mood faces, manual pulse, simulated wearables, workouts and meals.",
-      f2_t: "Personal baseline", f2_d: "A median with a robust band per person and per space (Earth, spacecraft, planet). Gray when there is not enough data.",
-      f3_t: "Status with a reason", f3_d: "Green, amber, red or gray, always saying what it was compared with. No AI model in the alert path.",
-      f4_t: "Share what you choose", f4_d: "Only what the astronaut confirms, as HL7 FHIR R4, to the ground base after a simulated delay.",
       oss_h: "Open source, with credit", oss_p: "PeWoNu is released under the MIT license. Use it, fork it and build on it: just keep the license notice and give credit to the PeWoNu team.", oss_lic: "Read the license",
       faq_h: "Frequently asked questions",
       q1: "Does PeWoNu diagnose?", a1: "No. It compares a person with their own history, explains what it compared against and suggests who could be told. It gives no diagnosis, no doses and no clinical thresholds.",
       q2: "Does it need internet?", a2: "Only for the first install. After that, both systems run on your computer without internet.",
       q3: "Where does the data go?", a3: "It stays on the computer. The astronaut app sends the ground base only what the astronaut chooses and confirms, packed as HL7 FHIR R4. The voice log keeps numbers only; the audio is discarded.",
       q4: "Is the data real?", a4: "No. The crew and all data are fictional and simulated, and the app labels them as such. Nothing here has been validated for use in space.",
+      f1: "NASA Space Apps Challenge 2026 · “Create Health Monitoring Software for Astronauts on Space Missions”.",
+      f2: "All crew and data are fictional and simulated. PeWoNu does not diagnose and has not been validated for use in space. This is a hackathon project, not affiliated with or endorsed by NASA.",
       alt_app: "Astronaut app: body figure colored by each system's state, mission ring and data panel",
       alt_ground: "Ground base: crew members, what needs attention and packages received",
-      alt_logo: "PeWoNu logo", title: "PeWoNu · Peace, WOD, Nutrition"
+      title: "PeWoNu · Peace, WOD, Nutrition"
     },
     es: {
-      skip: "Saltar al contenido", gh_short: "GitHub",
+      skip: "Saltar al contenido", nav_install: "Instalar",
       lead: "Un prototipo de bienestar para astronautas en misiones largas. Compara a cada persona con su propia línea base, no con un promedio, y comparte solo lo que el astronauta decide.",
       cta_gh: "Ver en GitHub", cta_install: "Instalar con un solo comando",
       notice: "Prototipo con datos simulados y análogos. No diagnostica.",
+      ring_place: "Tierra", c1: "Sueño · En rango", c2: "Pulso · Fuera de rango", c3: "Equilibrio · En rango", c4: "Huesos · Sin medición",
+      eb_pillars: "Tres ejes", eb_why: "El reto", eb_how: "El método", eb_install: "Empieza", eb_shots: "Dos sistemas", eb_oss: "Licencia MIT", eb_faq: "Preguntas",
       pillars_h: "Tres ejes, una sola plataforma",
       pillars_sub: "Mente, movimiento y comida para tripulaciones demasiado lejos de la Tierra para recibir ayuda en tiempo real.",
       peace_p: "Chequeo de ánimo, pulso manual guiado y bitácora de voz opcional. El audio se descarta; solo se guardan números y no se infiere ninguna emoción.",
       wod_p: "El entrenamiento del día en las tres máquinas de la ISS (cinta T2, bicicleta CEVIS, dispositivo de resistencia ARED), según edad, peso y densidad ósea.",
       nut_p: "Una estimación diaria de energía junto al rango que usan las dietistas de la estación, y un registro de comidas por tipo de alimento de la ISS.",
+      peace_k: "Mente", wod_k: "Movimiento", nut_k: "Combustible",
+      why_h: "Por qué importa", why_sub: "En una misión a Marte la tripulación está lejos de la Tierra y de sus médicos, y cada mensaje tarda minutos en llegar.",
+      st1: "minutos de retraso en un sentido entre la Tierra y Marte", st2: "peligros del vuelo espacial según la NASA, y se refuerzan entre sí", st3: "de densidad ósea perdida al mes en el espacio sin contramedidas",
+      how_h: "Cómo funciona", how_sub: "Lo normal es personal: cada estado se compara con la historia de la propia persona, y lo dice.",
+      f1_t: "Datos de entrada", f1_d: "Caritas de ánimo, pulso manual, relojes simulados, entrenamientos y comidas.",
+      f2_t: "Línea base personal", f2_d: "Una mediana con banda robusta por persona y por espacio (Tierra, nave, planeta). Gris cuando no hay datos suficientes.",
+      f3_t: "Estado con su razón", f3_d: "Verde, ámbar, rojo o gris, siempre diciendo con qué se comparó. Sin modelo de IA en la ruta de alertas.",
+      f4_t: "Comparte lo que elijas", f4_d: "Solo lo que el astronauta confirma, como HL7 FHIR R4, a la base en Tierra después de un retraso simulado.",
+      lg1: "En rango", lg2: "Fuera de rango", lg3: "Muy fuera de rango", lg4: "Datos insuficientes",
       install_h: "Instálalo con un solo comando",
       install_sub: "El instalador prepara todo lo necesario: uv, el Python correcto, el código y todas las dependencias. Luego inicia PeWoNu.",
       copy: "Copiar", copied: "Copiado",
@@ -334,24 +426,17 @@ footer p { margin: 0 0 6px; }
       n3: "Para instalar en otra carpeta, define <span class=\"inline\">PEWONU_DIR</span> antes de ejecutar el comando.",
       shots_h: "Los dos sistemas", shots_sub: "La app del astronauta corre a bordo. La base en Tierra muestra solo lo que el astronauta eligió enviar, después del retraso de comunicación.",
       cap_app: "App del astronauta: cuerpo, anillo de misión y los tres ejes.", cap_ground: "Base en Tierra: tripulantes y lo que requiere atención.",
-      f1: "NASA Space Apps Challenge 2026 · «Crear software de monitoreo de salud para astronautas en misiones espaciales».",
-      f2: "Toda la tripulación y los datos son ficticios y simulados. PeWoNu no diagnostica y no se ha validado para uso en el espacio. Es un proyecto de hackatón, sin afiliación ni respaldo de la NASA.",
-      why_h: "Por qué importa", why_sub: "En una misión a Marte la tripulación está lejos de la Tierra y de sus médicos, y cada mensaje tarda minutos en llegar.",
-      st1: "minutos de retraso en un sentido entre la Tierra y Marte", st2: "peligros del vuelo espacial según la NASA, y se refuerzan entre sí", st3: "de densidad ósea perdida al mes en el espacio sin contramedidas",
-      how_h: "Cómo funciona", how_sub: "Lo normal es personal: cada estado se compara con la historia de la propia persona, y lo dice.",
-      f1_t: "Datos de entrada", f1_d: "Caritas de ánimo, pulso manual, relojes simulados, entrenamientos y comidas.",
-      f2_t: "Línea base personal", f2_d: "Una mediana con banda robusta por persona y por espacio (Tierra, nave, planeta). Gris cuando no hay datos suficientes.",
-      f3_t: "Estado con su razón", f3_d: "Verde, ámbar, rojo o gris, siempre diciendo con qué se comparó. Sin modelo de IA en la ruta de alertas.",
-      f4_t: "Comparte lo que elijas", f4_d: "Solo lo que el astronauta confirma, como HL7 FHIR R4, a la base en Tierra después de un retraso simulado.",
       oss_h: "Código abierto, con créditos", oss_p: "PeWoNu se publica bajo la licencia MIT. Úsalo, haz un fork y construye sobre él: solo conserva el aviso de la licencia y da crédito al equipo PeWoNu.", oss_lic: "Leer la licencia",
       faq_h: "Preguntas frecuentes",
       q1: "¿PeWoNu diagnostica?", a1: "No. Compara a una persona con su propia historia, explica con qué se comparó y sugiere a quién avisar. No da diagnósticos, dosis ni umbrales clínicos.",
       q2: "¿Necesita internet?", a2: "Solo para la primera instalación. Después, los dos sistemas corren en tu computador sin internet.",
       q3: "¿A dónde van los datos?", a3: "Se quedan en el computador. La app del astronauta envía a la base en Tierra solo lo que el astronauta elige y confirma, empaquetado como HL7 FHIR R4. La bitácora de voz guarda solo números; el audio se descarta.",
       q4: "¿Los datos son reales?", a4: "No. La tripulación y todos los datos son ficticios y simulados, y la app los rotula así. Nada de esto se ha validado para uso en el espacio.",
+      f1: "NASA Space Apps Challenge 2026 · «Crear software de monitoreo de salud para astronautas en misiones espaciales».",
+      f2: "Toda la tripulación y los datos son ficticios y simulados. PeWoNu no diagnostica y no se ha validado para uso en el espacio. Es un proyecto de hackatón, sin afiliación ni respaldo de la NASA.",
       alt_app: "App del astronauta: figura corporal coloreada por el estado de cada sistema, anillo de misión y panel de datos",
       alt_ground: "Base en Tierra: tripulantes, lo que requiere atención y paquetes recibidos",
-      alt_logo: "Logo de PeWoNu", title: "PeWoNu · Peace, WOD, Nutrition"
+      title: "PeWoNu · Peace, WOD, Nutrition"
     }
   };
   var lang = "en";
@@ -370,7 +455,6 @@ footer p { margin: 0 0 6px; }
     $$("[data-set-lang]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-set-lang") === l)); });
     $("#img-app").src = "img/app-" + l + ".jpg"; $("#img-app").alt = d.alt_app;
     $("#img-ground").src = "img/ground-" + l + ".jpg"; $("#img-ground").alt = d.alt_ground;
-    $(".logo").alt = d.alt_logo;
     try { localStorage.setItem("pewonu-lang", l); } catch (e) {}
   }
 
@@ -386,10 +470,11 @@ footer p { margin: 0 0 6px; }
 
   $$(".copy").forEach(function (b) {
     b.addEventListener("click", function () {
-      var text = document.getElementById(b.getAttribute("data-copy")).textContent;
+      var node = document.getElementById(b.getAttribute("data-copy"));
+      var text = node.textContent;
       function done() { b.classList.add("done"); b.textContent = T[lang].copied; setTimeout(function () { b.classList.remove("done"); b.textContent = T[lang].copy; }, 1800); }
       if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(done, function () {}); }
-      else { var r = document.createRange(); r.selectNode(document.getElementById(b.getAttribute("data-copy"))); var s = getSelection(); s.removeAllRanges(); s.addRange(r); try { document.execCommand("copy"); done(); } catch (e) {} }
+      else { var r = document.createRange(); r.selectNode(node); var s = getSelection(); s.removeAllRanges(); s.addRange(r); try { document.execCommand("copy"); done(); } catch (e) {} }
     });
   });
 
