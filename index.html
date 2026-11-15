@@ -321,7 +321,7 @@ footer p { margin: 0 0 6px; }
       <h2 id="demo-h" data-i18n="demo_h">Project presentation</h2>
       <p class="sub" data-i18n="demo_sub">The 7-slide demo for the NASA Space Apps Challenge 2026. Open it here, with no password or registration.</p>
       <div class="glass demo-box">
-        <iframe id="demo-frame" src="pewonu-presentation.pdf?v=2#view=FitH" title="PeWoNu presentation (PDF)"></iframe>
+        <iframe id="demo-frame" src="pewonu-presentation.pdf?v=3#view=FitH" title="PeWoNu presentation (PDF)"></iframe>
         <div class="demo-actions">
           <a class="btn primary" id="demo-open" href="pewonu-presentation.pdf" rel="noopener" data-i18n="demo_open">Open the PDF</a>
           <a class="btn" id="demo-other" href="pewonu-presentacion.pdf" rel="noopener" data-i18n="demo_other">Versión en español (PDF)</a>
@@ -356,7 +356,7 @@ footer p { margin: 0 0 6px; }
 <footer>
   <div class="wrap">
     <p data-i18n="f1">NASA Space Apps Challenge 2026 · “Create Health Monitoring Software for Astronauts on Space Missions”.</p>
-    <p data-i18n="f2">All crew and data are fictional and simulated. PeWoNu does not diagnose and has not been validated for use in space. This is a hackathon project, not affiliated with or endorsed by NASA.</p>
+    <p data-i18n="f2">All crew and data are fictional and simulated. PeWoNu does not diagnose and has not been validated for use in space. The logo was generated with Gemini (AI-generated, marked on the image), as were the pulse illustrations (Gemini and Meta AI). This is a hackathon project, not affiliated with or endorsed by NASA.</p>
     <p><a href="https://github.com/MrT-coder/pewonu" rel="noopener">github.com/MrT-coder/pewonu</a></p>
   </div>
 </footer>
@@ -406,7 +406,7 @@ footer p { margin: 0 0 6px; }
       q3: "Where does the data go?", a3: "It stays on the computer. The astronaut app sends the ground base only what the astronaut chooses and confirms, packed as HL7 FHIR R4. The voice log keeps numbers only; the audio is discarded.",
       q4: "Is the data real?", a4: "No. The crew and all data are fictional and simulated, and the app labels them as such. Nothing here has been validated for use in space.",
       f1: "NASA Space Apps Challenge 2026 · “Create Health Monitoring Software for Astronauts on Space Missions”.",
-      f2: "All crew and data are fictional and simulated. PeWoNu does not diagnose and has not been validated for use in space. This is a hackathon project, not affiliated with or endorsed by NASA.",
+      f2: "All crew and data are fictional and simulated. PeWoNu does not diagnose and has not been validated for use in space. The logo was generated with Gemini (AI-generated, marked on the image), as were the pulse illustrations (Gemini and Meta AI). This is a hackathon project, not affiliated with or endorsed by NASA.",
       nav_demo: "Demo", eb_demo: "The demo", demo_h: "Project presentation",
       demo_sub: "The 7-slide demo for the NASA Space Apps Challenge 2026. Open it here, with no password or registration.",
       demo_open: "Open the PDF", demo_other: "Versión en español (PDF)",
@@ -458,7 +458,7 @@ footer p { margin: 0 0 6px; }
       q3: "¿A dónde van los datos?", a3: "Se quedan en el computador. La app del astronauta envía a la base en Tierra solo lo que el astronauta elige y confirma, empaquetado como HL7 FHIR R4. La bitácora de voz guarda solo números; el audio se descarta.",
       q4: "¿Los datos son reales?", a4: "No. La tripulación y todos los datos son ficticios y simulados, y la app los rotula así. Nada de esto se ha validado para uso en el espacio.",
       f1: "NASA Space Apps Challenge 2026 · «Crear software de monitoreo de salud para astronautas en misiones espaciales».",
-      f2: "Toda la tripulación y los datos son ficticios y simulados. PeWoNu no diagnostica y no se ha validado para uso en el espacio. Es un proyecto de hackatón, sin afiliación ni respaldo de la NASA.",
+      f2: "Toda la tripulación y los datos son ficticios y simulados. PeWoNu no diagnostica y no se ha validado para uso en el espacio. El logo se generó con Gemini (IA, marcado en la imagen), igual que las ilustraciones del pulso (Gemini y Meta AI). Es un proyecto de hackatón, sin afiliación ni respaldo de la NASA.",
       nav_demo: "Demo", eb_demo: "La demostración", demo_h: "Presentación del proyecto",
       demo_sub: "La demo de 7 diapositivas para el NASA Space Apps Challenge 2026. Ábrela aquí, sin contraseña ni registro.",
       demo_open: "Abrir el PDF", demo_other: "English version (PDF)",
@@ -484,7 +484,7 @@ footer p { margin: 0 0 6px; }
     });
     $$("[data-set-lang]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-set-lang") === l)); });
     var main = l === "es" ? "pewonu-presentacion.pdf" : "pewonu-presentation.pdf", other = l === "es" ? "pewonu-presentation.pdf" : "pewonu-presentacion.pdf";
-    $("#demo-frame").src = main + "?v=2#view=FitH"; $("#demo-frame").title = d.demo_title;
+    $("#demo-frame").src = main + "?v=3#view=FitH"; $("#demo-frame").title = d.demo_title;
     $("#demo-open").href = main; $("#demo-other").href = other;
     $("#img-app").src = "img/app-" + l + ".jpg"; $("#img-app").alt = d.alt_app;
     $("#img-ground").src = "img/ground-" + l + ".jpg"; $("#img-ground").alt = d.alt_ground;
