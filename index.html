@@ -164,6 +164,11 @@ details + details { margin-top: 10px; }
 summary { cursor: pointer; padding: 14px 0; font-weight: 700; }
 details p { margin: 0 0 14px; color: var(--muted); }
 
+.demo-box { padding: 18px; }
+.demo-box iframe { width: 100%; height: 520px; border: 1px solid var(--line-strong); border-radius: 12px; background: #050a14; display: block; }
+.demo-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; align-items: center; }
+.demo-note { color: var(--muted); font-size: .92rem; margin: 12px 0 0; }
+@media (max-width: 860px) { .demo-box iframe { height: 340px; } }
 footer { padding: 36px 0 56px; color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line); margin-top: 24px; }
 footer p { margin: 0 0 6px; }
 
@@ -186,6 +191,7 @@ footer p { margin: 0 0 6px; }
     <span class="spacer"></span>
     <nav class="nav" aria-label="Main">
       <a class="link" href="#install" data-i18n="nav_install">Install</a>
+      <a class="link" href="#demo" data-i18n="nav_demo">Demo</a>
       <a class="link" href="https://github.com/MrT-coder/pewonu" rel="noopener">GitHub</a>
     </nav>
     <div class="lang" role="group" aria-label="Language">
@@ -310,6 +316,20 @@ footer p { margin: 0 0 6px; }
       </div>
     </section>
 
+    <section id="demo" aria-labelledby="demo-h">
+      <span class="eyebrow" data-i18n="eb_demo">The demo</span>
+      <h2 id="demo-h" data-i18n="demo_h">Project presentation</h2>
+      <p class="sub" data-i18n="demo_sub">The 7-slide demo for the NASA Space Apps Challenge 2026. Open it here, with no password or registration.</p>
+      <div class="glass demo-box">
+        <iframe id="demo-frame" src="pewonu-presentation.pdf#view=FitH" title="PeWoNu presentation (PDF)"></iframe>
+        <div class="demo-actions">
+          <a class="btn primary" id="demo-open" href="pewonu-presentation.pdf" rel="noopener" data-i18n="demo_open">Open the PDF</a>
+          <a class="btn" id="demo-other" href="pewonu-presentacion.pdf" rel="noopener" data-i18n="demo_other">Versión en español (PDF)</a>
+        </div>
+        <p class="demo-note" data-i18n="demo_note">Your browser does not show the preview? Use the buttons above to open the PDF.</p>
+      </div>
+    </section>
+
     <section aria-labelledby="oss-h">
       <div class="glass oss">
         <span class="eyebrow" style="margin:0" data-i18n="eb_oss">MIT license</span>
@@ -387,6 +407,11 @@ footer p { margin: 0 0 6px; }
       q4: "Is the data real?", a4: "No. The crew and all data are fictional and simulated, and the app labels them as such. Nothing here has been validated for use in space.",
       f1: "NASA Space Apps Challenge 2026 · “Create Health Monitoring Software for Astronauts on Space Missions”.",
       f2: "All crew and data are fictional and simulated. PeWoNu does not diagnose and has not been validated for use in space. This is a hackathon project, not affiliated with or endorsed by NASA.",
+      nav_demo: "Demo", eb_demo: "The demo", demo_h: "Project presentation",
+      demo_sub: "The 7-slide demo for the NASA Space Apps Challenge 2026. Open it here, with no password or registration.",
+      demo_open: "Open the PDF", demo_other: "Versión en español (PDF)",
+      demo_note: "Your browser does not show the preview? Use the buttons above to open the PDF.",
+      demo_title: "PeWoNu presentation (PDF)",
       alt_app: "Astronaut app: body figure colored by each system's state, mission ring and data panel",
       alt_ground: "Ground base: crew members, what needs attention and packages received",
       title: "PeWoNu · Peace, WOD, Nutrition"
@@ -434,6 +459,11 @@ footer p { margin: 0 0 6px; }
       q4: "¿Los datos son reales?", a4: "No. La tripulación y todos los datos son ficticios y simulados, y la app los rotula así. Nada de esto se ha validado para uso en el espacio.",
       f1: "NASA Space Apps Challenge 2026 · «Crear software de monitoreo de salud para astronautas en misiones espaciales».",
       f2: "Toda la tripulación y los datos son ficticios y simulados. PeWoNu no diagnostica y no se ha validado para uso en el espacio. Es un proyecto de hackatón, sin afiliación ni respaldo de la NASA.",
+      nav_demo: "Demo", eb_demo: "La demostración", demo_h: "Presentación del proyecto",
+      demo_sub: "La demo de 7 diapositivas para el NASA Space Apps Challenge 2026. Ábrela aquí, sin contraseña ni registro.",
+      demo_open: "Abrir el PDF", demo_other: "English version (PDF)",
+      demo_note: "¿Tu navegador no muestra la vista previa? Usa los botones de arriba para abrir el PDF.",
+      demo_title: "Presentación de PeWoNu (PDF)",
       alt_app: "App del astronauta: figura corporal coloreada por el estado de cada sistema, anillo de misión y panel de datos",
       alt_ground: "Base en Tierra: tripulantes, lo que requiere atención y paquetes recibidos",
       title: "PeWoNu · Peace, WOD, Nutrition"
@@ -453,6 +483,9 @@ footer p { margin: 0 0 6px; }
       if (d[k] !== undefined) el.innerHTML = d[k];
     });
     $$("[data-set-lang]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-set-lang") === l)); });
+    var main = l === "es" ? "pewonu-presentacion.pdf" : "pewonu-presentation.pdf", other = l === "es" ? "pewonu-presentation.pdf" : "pewonu-presentacion.pdf";
+    $("#demo-frame").src = main + "#view=FitH"; $("#demo-frame").title = d.demo_title;
+    $("#demo-open").href = main; $("#demo-other").href = other;
     $("#img-app").src = "img/app-" + l + ".jpg"; $("#img-app").alt = d.alt_app;
     $("#img-ground").src = "img/ground-" + l + ".jpg"; $("#img-ground").alt = d.alt_ground;
     try { localStorage.setItem("pewonu-lang", l); } catch (e) {}
