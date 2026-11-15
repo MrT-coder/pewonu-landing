@@ -321,7 +321,7 @@ footer p { margin: 0 0 6px; }
       <h2 id="demo-h" data-i18n="demo_h">Project presentation</h2>
       <p class="sub" data-i18n="demo_sub">The 7-slide demo for the NASA Space Apps Challenge 2026. Open it here, with no password or registration.</p>
       <div class="glass demo-box">
-        <iframe id="demo-frame" src="pewonu-presentation.pdf?v=5#view=FitH" title="PeWoNu presentation (PDF)"></iframe>
+        <iframe id="demo-frame" src="pewonu-presentation.pdf?v=6#view=FitH" title="PeWoNu presentation (PDF)"></iframe>
         <div class="demo-actions">
           <a class="btn primary" id="demo-open" href="pewonu-presentation.pdf" rel="noopener" data-i18n="demo_open">Open the PDF</a>
           <a class="btn" id="demo-other" href="pewonu-presentacion.pdf" rel="noopener" data-i18n="demo_other">Versión en español (PDF)</a>
@@ -484,7 +484,7 @@ footer p { margin: 0 0 6px; }
     });
     $$("[data-set-lang]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-set-lang") === l)); });
     var main = l === "es" ? "pewonu-presentacion.pdf" : "pewonu-presentation.pdf", other = l === "es" ? "pewonu-presentation.pdf" : "pewonu-presentacion.pdf";
-    $("#demo-frame").src = main + "?v=5#view=FitH"; $("#demo-frame").title = d.demo_title;
+    $("#demo-frame").src = main + "?v=6#view=FitH"; $("#demo-frame").title = d.demo_title;
     $("#demo-open").href = main; $("#demo-other").href = other;
     $("#img-app").src = "img/app-" + l + ".jpg"; $("#img-app").alt = d.alt_app;
     $("#img-ground").src = "img/ground-" + l + ".jpg"; $("#img-ground").alt = d.alt_ground;
